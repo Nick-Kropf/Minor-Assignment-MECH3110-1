@@ -1,0 +1,326 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{varioref}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{changepage}
+\usepackage[title]{appendix}
+\usepackage[flushleft]{threeparttable}
+\usepackage{cleveref}
+\usepackage{lscape}
+
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\center
+
+\includegraphics[width=0.5\textwidth]{unilogo.png}\\[1cm] 
+
+
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Minor Assignment}\\[0.4cm] 
+\HRule \\[0.5cm]
+Submitted by Group 27 \\
+\vspace{0.5cm}
+
+ 
+% Authors
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Authors:}\\
+Michael Fogarasi \\ 
+Nicholas Kropf \\
+David Lester \\
+Patrick Carrigan-Grant\\
+Oscar Kraeft\\
+Callum Kilgariff
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Student Numbers:} \\
+z5114174 \\
+z5017372 \\ 
+z5117428 \\
+z5075995 \\
+z5075995 \\
+z5062289 \\
+\end{flushright}
+\end{minipage}\\ [0.5cm]
+
+
+{\small \today}\\[1cm] 
+
+
+\vfill 
+
+\end{titlepage}
+
+\begin{large}  
+\tableofcontents
+\end{large}
+
+\listoffigures
+\listoftables
+\newpage
+
+\section{}
+\justifying
+Given that: 
+
+\begin{center}
+\begin{align*}
+\omega_{min} =& 240 rpm \\
+\omega_{max} =& 250 rpm \\
+\therefore 25.13 rad/s \leq \omega \leq 26.12 rad/s \\
+\end{align*}
+\end{center}
+
+and
+\begin{align*}
+    T_{avg} =& \int T(\theta) d\theta\\
+    =& 66.67 Nm
+\end{align*}
+
+\begin{align}
+\begin{split}
+P_{roller} =& \omega \times T \\ \vspace{0.5cm}
+=& 1676 W
+\end{split}
+\end{align}
+
+
+\begin{align}
+\begin{split}
+    \frac{P_{Roller}}{P_{Motor}} =& \eta_{sys} \\
+    \therefore P_{Motor} =& \frac{P_{Roller}}{\eta_{sys}}
+\end{split}
+\end{align}
+
+Assuming the efficiency of the system ($\eta_{sys}$ to equal:
+
+\begin{align}
+    \begin{split}
+        \eta_{sys} =& \sum{\eta_i} \\
+        =& 0.9 \times 0.8 \times 0.95 \\
+        =& 0.684
+    \end{split}
+\end{align}
+
+Thus the power required for the motor is given as:
+
+\begin{align}
+    \begin{split}
+        P_{motor} =& \frac{1676}{0.684} \\ 
+        =& 2450W
+    \end{split}
+\end{align}
+
+
+\section{Belt}
+As the belt has been placed in the first position in the transmission system as per the assignment specifications, the power entering the belt is equal to the output of the motor (i.e. $P_{belt} = 2450 W$). 
+
+For a motor with a rated frequency output of 3000 rpm, the actual power and frequency can be calculated by applying the slip equation \ref{slip}. 
+
+\begin{align} \label{slip}
+    \begin{split}
+        N_{actual} =& N_s \times (1-s) \\ 
+        \text{Where s =& slip percentage} \\
+        N_s =& \frac{120 \times f}{Poles} \\
+        \therefore N_a =& 2858.4 rpm
+    \end{split}
+\end{align}
+
+\begin{align} \label{Reduction}
+    \begin{split}
+    \text{Reduction}_{max} =& \frac{\omega_{motor}}{\omega_{roller}} \\
+    R_T=& \frac{2858.4}{240} \\
+    =& 11.9 \\
+    \therefore R_T =& R_{chain} \times R_{belt} 
+     \end{split}
+\end{align}
+
+Provided that the maximum recommended reduction ratio for a chain is 6:1, the reduction ratios have been distributed as shown below:
+
+\begin{center}
+    $R_C = 6:1$ \\
+    $R_B = 5.9:1$ \\
+\end{center}
+
+The belt speed can be calculated from the angular velocity of the driving pulley and its diameter as shown in \ref{speed}. 
+
+\begin{align} \label{speed}
+    \begin{split}
+    v =& \omega \times Circ_{sheave} \\
+    =& \pi \omega D \\
+    =& ... 
+    \end{split}
+\end{align}
+
+Thus the allowable power ($H_{nom}$) for the belt was found from Table 17-12 as 3.34 hp or 2490W. The design power ($H_d$) was found by applying \ref{P_design} and equated to 5229W. Thus the number of belts can be found by applying equation \ref{N_b}. \\
+Thus the factor of safety for the belt s can be found by applying 
+
+
+\begin{align} \label{N_b}
+    \begin{split}
+        N_b \geq \frac{H_d}{H_{nom}} \\
+        = 2.1 \\
+        \therefore \text{3 belts are required.}
+    \end{split}
+\end{align}
+
+\begin{align} \label{f_s}
+    \begin{split}
+        n_{fs} =& \frac{H_a N_b}{H_{nom} K_s} \\
+        =& 2
+    \end{split}
+\end{align}
+
+\begin{align} \label{L_P}
+\begin{split}
+    D =& R_C\times d \\
+    =& 2.9 \times 135 \\
+    =& 393.8mm \\ 
+    L_{P Prelim} =& 2C+ \pi \bigg(\frac{D+d}{2} \bigg) + \frac{(D-d)^2}{4C}
+    \end{split}
+\end{align}
+
+From equation \ref{L_P}, the minimum length of the belt has been determined to be .... Thus the chosen belt is the ..... 
+
+Using these dimensions, the centre to centre distance can be found by applying equation \ref{C_f}. 
+
+\begin{align} \label{C_f}
+    \begin{split}
+        C =& 0.25\Bigg[ \Big(L_p - \frac{\pi}{2}(D+d) \Big) + \sqrt{ \Big(L_p i \frac{\pi}{2}(D+d) \Big)^2-2(D-d)^2}\Bigg]
+    \end{split}
+\end{align}
+
+With an efficiency of 0.95 for the belt, the power transmitted to the intermediate shaft was found to be ... thus the nominal power for the chain ($P_{nom}$) = ... 
+
+\subsection{Lifetime}
+The lifetime of the belt system can 
+
+\section{Chain}
+A maximum reduction ratio for chains has been identified as 6:1 to ensure maximum life expectancy (17-31). The initial calculation was performed based on 17 teeth on the driving sprocket. Taking ks to equal 1.4, and a design factor ($n_D$) of 1.5, for a single strand chain. The nominal power is limited by fatigue strength at lower speeds (\ref{H1}) and the roller at higher speeds (\ref{H2}).
+
+\begin{align} \label{H1}
+    \begin{split}
+        H_1 =& 0.004N_1^{1.08}n_1^{0.9}p^{(3-0.07p)} \hspace{0.3cm} hp
+    \end{split}
+\end{align}
+
+\begin{align*}
+        \text{Where } N_1 =& \text{Number of teeth (small)} \\
+        n_1 =& \text{sprocket speed (rpm)} \\
+        p =& \text{pitch of the chain} \\
+        K_r =& 17
+\end{align*}
+
+\begin{align} \label{H2}
+    \begin{split}
+        H_2 =& \frac{1000K_r N_1^{1.5}p^{0.8}}{n_1^{1.5}} hp
+    \end{split}
+\end{align}
+
+\begin{center}
+$\therefore P_{nom} = min(H_1, H_2) = min(...,...) = ... $ hp.\\
+\end{center} 
+
+The design power can be determined using equation \ref{P_design}. Applying a correction factor ($k_s$) of 1.3 due to the potential for moderate shock and standard operation of 8 hours per day along with a design factor of 1.5. \\
+\begin{align} \label{P_design}
+    \begin{split}
+        P_{design} =& P_{Nom} \times ks \times n_D \\
+        =& ... \times 1.3 \times 1.5 \\
+        =& ...
+    \end{split}
+\end{align}
+
+Applying this power and based on an angular velocity of .... the ANSI number for the driving sprocket was found to be ... (from table 17-20). Applying the aforementioned ANSI number to table 17-19, the dimensions for the driving sprocket were found to be:
+\begin{center}
+$Pitch = ... $ \\
+$D_{Roller}$ = ... 
+\end{center}
+
+The pitch diameter of the sprocket can be determined by applying equation \ref{Pitch_D}.
+
+\begin{align} \label{Pitch_D}
+    \begin{split}
+        D =& \frac{p}{\sin{\frac{\pi}{N}}} \\
+        =&
+    \end{split}
+\end{align}
+
+The minimum exit velocity of the chain occurs at diameter d, which can be calculated as follows: 
+
+\begin{align} \label{d_chain}
+    \begin{split}
+        d = D\cos{\frac{\pi}{N}} \\
+        =&
+    \end{split}
+\end{align}
+
+The minimum distance between the two sprockets can be determined by applying equation \ref{C_min}.
+
+\begin{align} \label{C_min}
+    \begin{split}
+        C_{min} =& \frac{D+d}{2} + D_{roller} \\
+        =& ...
+    \end{split}
+\end{align}
+
+From 17-34, the number of links in the chain can be determined by applying equation \ref{L/P}
+
+\begin{align} \label{L/P}
+    \begin{split}
+        R_C =& \frac{N_2}{N_1} \\
+        \therefore N_2 =& N_1 \times R_C \\
+        =& ... \\
+        \frac{L}{P} =& \frac{2C_{min}}{P} + \frac{N_1+N_2}{2} + \frac{(N_2 - N_1)^2}{4\pi^2\frac{C_{min}}{P}} \\
+        =& ...
+    \end{split}
+\end{align}
+Therefore rounding up to the nearest even number, the number of links required for the chain has been determined to be ... \\
+Thus to find the actual distance between shafts, apply equation \ref{C_min}. 
+
+\begin{align} \label{C_min}
+    \begin{split}
+        C =& \frac{p}{4} \bigg[-A +\sqrt{A^2-8\bigg(\frac{N_2-N_1}{2\pi}\bigg)^2}\Bigg]\\
+        =& ...
+    \end{split}
+\end{align}
+
+Where
+\begin{align} \label{A}
+    \begin{split}
+        A =& \frac{N_1 + N_2}{2} - \frac{L}{p}\\
+        =& ...
+    \end{split}
+\end{align}
+
+The purpose of this design was to minimize the distances between the intermediate shaft and the motor and roller shafts, as well as reducing the moment on the intermediate shaft. Thus the process was iterated to ensure that the optimal dimensions of the belt and chain were as described in \cref{Dimensions}. 
+
+According to the manufacturer specifications, the chain has been designed to operate for 15,000 hours. Thus under the operating hours provided in the assignment outline, this should result in an operational life of $\approx 7.5$ years.
+
+\section{Lubrication}
+
+
+\section{Shaft Design}
+
+
+
+$http://ecatalog.weg.net/TEC_CAT/tech_motor_dat_web.asp$
+\end{document} 
